@@ -43,6 +43,7 @@ def main():
     except AttributeError:
         pass
 
+    print (bcolors.OKGREEN + "Processing..." + bcolors.ENDC)
     data = prepare_string()
     if (parsed_args.verbose == True):
         print data
