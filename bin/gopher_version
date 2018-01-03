@@ -1,0 +1,35 @@
+#!/usr/bin/env python
+
+from gopher_version import sys_packages
+from gopher_version import ros_packages
+from gopher_version import writer
+import argparse
+
+
+def pars_args():
+    parser = argparse.ArgumentParser(description="A simple, configurable software to tar a set of preconfigured log "
+                                                 "files.", prog='gopher_version', version='0.1')
+    parser.add_argument("--verbose", action="store_true", default=False, help="Show what is actually written to file")
+
+    parser.add_argument("--output", action="store_true", default=None, help="Allows to specify an output file for the "
+                        "data")
+
+    return parser.parse_args()
+
+def prepare_string():
+    system_dict = sys_packages.get_system_packages()
+    result = ""
+    ros_dict_devel = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-devel")
+    ros_dict_stable = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-stable")
+    ros_dict_base = ros_packages.get_ros_packages("/opt/ros")
+    result += writer.dict_to_str(system_dict, "SYSTEM PACAKGES")
+    result += writer.dict_to_str(ros_dict_devel, "YUJIN_DEVEL")
+    result += writer.dict_to_str(ros_dict_stable, "YUJIN STABLE")
+    result += writer.dict_to_str(ros_dict_base, "ROS INTERNAL")
+    print result
+
+def main():
+    parsed_args = pars_args()
+
+main()
+#prepare_string()
