@@ -28,6 +28,6 @@ def dict_to_str(dict_name_version, identifier):
     return final_str
 
 def write_to_file(filename, data):
-    fp = open(filename)
+    fp = open(filename, "w+")
     fp.write(data)
     fp.close()
