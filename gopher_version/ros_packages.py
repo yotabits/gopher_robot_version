@@ -28,7 +28,7 @@ def get_packages(file_list):
     return file_list
 
 def get_package_list(root_path):
-    flist = list_files('/opt/yujin')
+    flist = list_files(root_path)
     flist = get_packages(flist)
     return flist
 
