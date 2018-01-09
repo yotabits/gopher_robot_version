@@ -22,11 +22,27 @@ def pars_args():
 
 
 def prepare_string():
-    system_dict = sys_packages.get_system_packages()
+    ros_dict_stable = {}
+    ros_dict_devel = {}
+    ros_dict_base = {}
     result = ""
-    ros_dict_devel = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-devel")
-    ros_dict_stable = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-stable")
-    ros_dict_base = ros_packages.get_ros_packages("/opt/ros")
+
+    system_dict = sys_packages.get_system_packages()
+    try:
+        ros_dict_devel = ros_packages.get_ros_packages("/optt/yujin/amd64/indigo-devel")
+    except OSError:
+        pass
+
+    try:
+        ros_dict_stable = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-stable")
+    except OSError:
+        pass
+
+    try:
+        ros_dict_base = ros_packages.get_ros_packages("/opt/ros")
+    except OSError:
+        pass
+
     result += writer.dict_to_str(system_dict, "SYSTEM PACAKGES")
     result += writer.dict_to_str(ros_dict_devel, "YUJIN_DEVEL")
     result += writer.dict_to_str(ros_dict_stable, "YUJIN STABLE")
