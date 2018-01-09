@@ -29,7 +29,7 @@ def prepare_string():
 
     system_dict = sys_packages.get_system_packages()
     try:
-        ros_dict_devel = ros_packages.get_ros_packages("/optt/yujin/amd64/indigo-devel")
+        ros_dict_devel = ros_packages.get_ros_packages("/opt/yujin/amd64/indigo-devel")
     except OSError:
         pass
 

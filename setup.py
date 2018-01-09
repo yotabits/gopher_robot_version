@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(name='gopher_version',
-      version='0.11',
+      version='0.12',
       description='Create a file containing the name and version of various ROS and system packages',
       author='Thomas Kostas',
       url='https://github.com/yotabits/gopher_version',
