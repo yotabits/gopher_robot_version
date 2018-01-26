@@ -1,4 +1,4 @@
-# gopher_version #
+# gopher_robot_version #
 
 Create a file containing the name and version of various ROS and system packages.
 
@@ -10,7 +10,7 @@ The following paths are used for ROS:
 
 ### Install ###
 ~~~~
-(sudo) pip install gopher_version
+(sudo) pip install gopher_robot_version
 ~~~~
 
 ### Usage ###
